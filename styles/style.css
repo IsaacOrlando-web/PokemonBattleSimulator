@@ -24,7 +24,7 @@
 }
 
 audio{
-    margin: 30px;
+    margin: 0 auto;
 }
 
 .pokemon-logo{
@@ -123,6 +123,13 @@ audio{
     border-radius: 10px;
     margin: 1.5px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.choose-tittle{
+    font-family: "Press Start 2P";
+    text-align: center;
+    font-size: 1rem;
+    padding: 2rem;
 }
 
 .selected-pokemon-pokeball{
