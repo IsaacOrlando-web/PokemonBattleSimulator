@@ -22,7 +22,7 @@ function startGame() {
 
 // Carga los items y luego ejecuta el callback
 async function loadItems(callback) {
-    const url = "../data/items.json";
+    const url = "./data/items.json";
     try {
         const response = await fetch(url);
         if(!response.ok){
