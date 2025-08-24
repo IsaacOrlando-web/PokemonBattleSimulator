@@ -1,0 +1,22 @@
+{
+    "items": [
+        {
+            "nombre": "Poción",
+            "efecto": "Restaura 20 PS",
+            "cantidad_ps": 20,
+            "imagen": "../images/items/potion.png"
+        },
+        {
+            "nombre": "Hiperpoción",
+            "efecto": "Restaura 200 PS",
+            "cantidad_ps": 200,
+            "imagen": "../images/items/hiperpocion.png"
+        },
+        {
+            "nombre": "Poción Máxima",
+            "efecto": "Restaura todos los PS de un Pokémon",
+            "cantidad_ps": 300,
+            "imagen": "../images/items/maxpotion.webp"
+        }
+    ]
+}
