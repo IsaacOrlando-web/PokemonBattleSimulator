@@ -9,7 +9,14 @@ let enemyPokemons = []; //Almacena los pokemon del enemigo
 const saved = localStorage.getItem('selectedPokemons');
 selectedPokemons = saved ? JSON.parse(saved) : [];
 
-
+// Agregar vida inicial a los Pokémon (300)
+selectedPokemons = selectedPokemons.map(pokemon => {
+  return {
+    ...pokemon,
+    currentHp: 300,
+    maxHp: 300
+  };
+});
 
 main();
 
@@ -27,7 +34,23 @@ async function getPokemonData() {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }
                 const details = await res.json();
-                return details; // Guarda toda la info del Pokémon
+
+                //obtener los primeros 4 movimientos
+                const moves = details.moves.slice(0, 4).map(move => {
+                  return {
+                    name: move.move.name,
+                    // Asignar daño aleatorio entre 20 y 60 para cada movimiento
+                    damage: Math.floor(Math.random() * 41) + 20
+                  };
+                });
+
+                // Agregar movimientos y vida al Pokémon
+                return {
+                  ...details,
+                  moves: moves,
+                  currentHp: 300,
+                  maxHp: 300
+                };
             })
         );
         console.log(allPokemons);

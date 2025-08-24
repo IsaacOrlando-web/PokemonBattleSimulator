@@ -106,6 +106,7 @@ audio{
     border-radius: 10px;
     border: none;
     transition: transform 0.2s ease;
+    cursor: pointer;
 }
 
 .select-button:hover{
