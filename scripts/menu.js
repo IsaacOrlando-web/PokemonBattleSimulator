@@ -181,16 +181,6 @@ allPokemonContainer.addEventListener('click', function(event) {
                 }
             }
             location.reload();
-        } else if (removeBtn && card) {
-            const pokemonName = card.querySelector('.pokemon-name')?.textContent.toLowerCase();
-            selectedPokemons = selectedPokemons.filter(saved => saved.name !== pokemonName);
-
-            try {
-                localStorage.setItem('selectedPokemons', JSON.stringify(selectedPokemons));
-                displayAllPokemons(allPokemons); // Actualiza la vista
-            } catch (error) {
-                console.error('Error al guardar en localStorage:', error);
-            }
         }
     }
     
