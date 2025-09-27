@@ -1,3 +1,5 @@
+const selectThreeDialog = document.getElementById('selectThreeDialog');
+const closeThreeDialog = document.getElementById('closeModal');
 const url = "https://pokeapi.co/api/v2/pokemon/";
 const allPokemonContainer = document.getElementById("all-pokemon-container"); // Contenedor donde se muestran todos los pokemon que el usuario puede seleccionar
 const selectedPokemonContainer = document.getElementById("three-pokemon-selected");
@@ -210,6 +212,9 @@ startButton.addEventListener('click', () =>{
     if(selectedPokemons.length === 3){
         window.open("battle.html", "_self");
     }else {
-        alert("Select three Pokemons");
+        selectThreeDialog.showModal();
+        closeModal.addEventListener("click", function () {
+        selectThreeDialog.close();
+    });
     }
 });
