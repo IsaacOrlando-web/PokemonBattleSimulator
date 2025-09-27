@@ -27,16 +27,110 @@ audio{
     margin: 0 auto;
 }
 
-.pokemon-logo{
+.energy-line {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 320px;
+    height: 8px;
+    background: linear-gradient(90deg, #6890F0 0%, #A890F0 60%, #f7f7f7 100%);
+    opacity: 0.8;
+    border-radius: 4px;
+    filter: blur(2px);
+    animation: energyMove 1s linear infinite;
+    z-index: 1;
+}
+
+.energy-line:nth-child(2) {
+    top: 35vh;
+    animation-delay: 1.2s;
+    background: linear-gradient(90deg, #A890F0 0%, #30a7d7 60%, #f7f7f7 100%);
+    height: 10px;
+    width: 400px;
+    opacity: 0.7;
+}
+
+.energy-line:nth-child(3) {
+    top: 70vh;
+    animation-delay: 2.3s;
+    background: linear-gradient(90deg, #30a7d7 0%, #6890F0 60%, #A890F0 100%);
+    height: 12px;
+    width: 500px;
+    opacity: 0.6;
+}
+
+@keyframes energyMove {
+    0% { left: -400px; opacity: 0.8;}
+    10% { opacity: 1;}
+    90% { opacity: 1;}
+    100% { left: 100vw; opacity: 0;}
+}
+
+.pokemon-logo {
     text-align: center;
     margin: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.845);
+    background: linear-gradient(90deg, #ffe066 60%, #ffd700 100%);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    padding-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
 }
 
-.pokemon-logo img{
-    width: 300px;
-    padding: 50px;
+.pokemon-logo img {
+    width: 320px;
+    padding: 40px 0 20px 0;
+    filter: drop-shadow(0 4px 16px #ffd70088);
+    animation: logoBounce 2s infinite;
+    transition: transform 0.3s;
+}
+
+@keyframes logoBounce {
+    0%   { transform: translateY(0);}
+    10%  { transform: translateY(-12px);}
+    20%  { transform: translateY(0);}
+    30%  { transform: translateY(-8px);}
+    40%  { transform: translateY(0);}
+    100% { transform: translateY(0);}
+}
+
+.pokemon-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.pokemon-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    background-color: rgba(255,255,200,0.25);
+}
+
+@keyframes fadeInCard {
+    from { opacity: 0; transform: scale(0.8);}
+    to { opacity: 1; transform: scale(1);}
+}
+.pokemon-card {
+    animation: fadeInCard 0.5s;
+}
+
+.select-button:active, .start-button:active {
+    animation: buttonBounce 0.3s;
+}
+@keyframes buttonBounce {
+    0% { transform: scale(1);}
+    50% { transform: scale(1.15);}
+    100% { transform: scale(1);}
+}
+
+body {
+    background: linear-gradient(120deg, #f7f7f7 60%, #ffe066 100%);
+    /* Puedes agregar un canvas o SVG animado para estrellas si quieres ir más allá */
+}
+
+.tipo:hover {
+    box-shadow: 0 0 8px 2px rgba(255,255,255,0.5);
+    transform: scale(1.1);
+    transition: box-shadow 0.2s, transform 0.2s;
 }
 
 .container-all{
